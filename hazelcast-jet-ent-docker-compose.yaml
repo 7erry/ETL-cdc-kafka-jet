@@ -1,0 +1,245 @@
+version: '3.7'
+networks:
+  hazelcast-net:
+    name: hazelcast-net
+    driver: bridge
+
+
+services:
+  # client app far jar image (client code and dependencies)
+  #  hazelcast-python-app:
+  #    # We use a python3.7.4 image with Ubuntu buster slim version
+  #    image: hazelcast-python-app:latest
+  #    #    container_name: python_app
+  #    build: './hazelcast-python-app'
+  #    tty: true
+  #    #    user: "$$(id -u):$$(id -g)"
+  #
+  #    volumes:
+  #      - ./python:/app
+  #      - ./resources:/configFolder
+  #    depends_on:
+  #      - hazelcast2
+  #    environment:
+  #      - JAVA_OPTS=-Dhazelcast.client.config=/configFolder/hazelcast-client.xml -Dhazelcast.mancenter.url=http://localhost:8080/hazelcast-mancenter -Dhazelcast.member.address=hazelcast -Dgroup.name=hz-cluster -Dgroup.password=s3cr3t
+  #  #    networks:
+  #  #      - hazelcast-net
+
+  #  # hazelcast imdg
+  #    hazelcast:
+  #      image: hazelcast/hazelcast:latest
+  #      volumes:
+  #        - ./resources:/configFolder
+  #      environment:
+  #        - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast.xml -Dhazelcast.mancenter.url=http://localhost:8080/hazelcast-mancenter -Dgroup.name=hz-cluster -Dgroup.password=s3cr3t
+  #  #    ports:
+  #  #      - 5701:5701
+  #      links:
+  #        - "management-center:mancenter"
+
+  hazelcast1:
+    image: hazelcast/hazelcast-jet-enterprise
+    #    image: my-hz-jet-enterprise
+    #    build: ./hazelcast-jet-ent-base-image
+    container_name: hz_jet_1
+    volumes:
+      - ./hazelcast-jet-ent-base-image/resources:/opt/hazelcast-jet-enterprise/config-ext
+    environment:
+      #      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/hazelcast.xml -Dhazelcast.enterprise.license.key=ENTERPRISE_HD#8Nodes#Q6UJE9iNKSbfMOkjlZdXDYHPuAgwm1BWTqG85n2Cy018090090120810011100000101110900000010119011 -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
+      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.217:5701 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
+
+      #      - JAVA_OPTS=-Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701 -Dhazelcast.diagnostics.enabled=true
+
+      #      - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast.xml -Dhazelcast.mancenter.url=http://localhost:8080/hazelcast-mancenter -Dgroup.name=hz-cluster -Dgroup.password=s3cr3t
+      #      - JAVA_OPTS=-Dhazelcast.config=${HZ_HOME}/hazelcast.xml -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
+      #      - HOST_IP='ipconfig getifaddr en0'
+      #      - MANCENTER_URL="192.168.86.217:8080/hazelcast-mancenter"
+      - JET_LICENSE_KEY=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
+      - LOGGING_LEVEL=FINEST
+
+    ports:
+      - 5701:5701
+    #    command: '/opt/hazelcast/start-hazelcast.sh & nohup && wait'
+    #    command: '/opt/hazelcast/start.sh & && wait'
+    #    command: 'HOST_IP=$(ipconfig getifaddr en0) && export $HOST_IP && /opt/hazelcast/start-hazelcast.sh & && wait'
+    tty: true
+    stdin_open: true
+    #    command: 'sleep 10000'
+    networks:
+      - hazelcast-net
+    depends_on:
+      - management-center
+  #    links:
+  #      - "management-center:mancenter"
+
+  hazelcast2:
+    image: hazelcast/hazelcast-jet-enterprise
+    #    image: my-hz-jet-enterprise
+    #    build: ./hazelcast-jet-ent-base-image
+    container_name: hz_jet_2
+    volumes:
+      - ./hazelcast-jet-ent-base-image/resources:/opt/hazelcast-jet-enterprise/config-ext
+
+    environment:
+      #      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/hazelcast.xml -Dhazelcast.enterprise.license.key=ENTERPRISE_HD#8Nodes#Q6UJE9iNKSbfMOkjlZdXDYHPuAgwm1BWTqG85n2Cy018090090120810011100000101110900000010119011 -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
+
+      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.217:5702 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
+
+      #      - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast.xml -Dhazelcast.mancenter.url=http://localhost:8080/hazelcast-mancenter -Dgroup.name=hz-cluster -Dgroup.password=s3cr3t
+      #      - JAVA_OPTS=-Dhazelcast.config=${HZ_HOME}/hazelcast.xml -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
+      #      - HOST_IP='ipconfig getifaddr en0'
+      #      - MANCENTER_URL="192.168.86.217:8080/hazelcast-mancenter"
+      - JET_LICENSE_KEY=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
+      - LOGGING_LEVEL=FINEST
+
+    ports:
+      - 5702:5701
+    #    command: '/opt/hazelcast/start-hazelcast.sh & nohup && wait'
+    #    command: '/opt/hazelcast/start.sh & && wait'
+    #    command: 'HOST_IP=$(ipconfig getifaddr en0) && export $HOST_IP && /opt/hazelcast/start-hazelcast.sh & && wait'
+    tty: true
+    stdin_open: true
+    #    command: 'sleep 10000'
+    networks:
+      - hazelcast-net
+    depends_on:
+      - management-center
+  #    links:
+  #      - "management-center:mancenter"
+
+  hazelcast-jet-submit:
+    image: hazelcast/hazelcast-jet-enterprise
+    container_name: hz_jet_submit
+    volumes:
+      - ./hazelcast-jet-ent-base-image/resources:/opt/hazelcast-jet-enterprise/config-ext
+      - ./hazelcast-jet-ent-base-image/jet-job-jars:/opt/hazelcast-jet-enterprise/job-jars
+
+    environment:
+      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.217:5703 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
+#      - JOB_JAR=${JOB_JAR}
+      - JET_LICENSE_KEY=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
+      - LOGGING_LEVEL=FINEST
+    ports:
+      - 5703:5701
+      #    command: '/opt/hazelcast/start-hazelcast.sh & nohup && wait'
+      #    command: '/opt/hazelcast/start.sh & && wait'
+      #    command: 'HOST_IP=$(ipconfig getifaddr en0) && export $HOST_IP && /opt/hazelcast/start-hazelcast.sh & && wait'
+    tty: true
+    stdin_open: true
+    #    command: 'sleep 10000'
+    networks:
+      - hazelcast-net
+    depends_on:
+      - management-center
+
+
+  ##  management center
+  management-center:
+    image: hazelcast/management-center
+    container_name: mancenter
+    # persisting mancenter users db folder to local disk
+    #    volumes:
+    #      - ./mancenter3.8:/mancenter-3.8
+    environment:
+      #      - MANCENTER_DATA=/mancenter-3.8
+      # enable REST interface on management center
+      # http://docs.hazelcast.org/docs/latest-development/manual/html/Management/Clustered_REST_via_Management_Center.html
+      #      - JAVA_OPTS=-Dhazelcast.mc.rest.enabled=true -Dhazelcast.mc.license=ENTERPRISE_HD#8Nodes#Q6UJE9iNKSbfMOkjlZdXDYHPuAgwm1BWTqG85n2Cy018090090120810011100000101110900000010119011
+      - JAVA_OPTS=-Dhazelcast.mc.rest.enabled=true -Dhazelcast.mc.license=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
+
+    #    command: '/opt/hazelcast/mancenter/start.sh & && wait'
+    ports:
+      - 8080:8080
+    networks:
+      - hazelcast-net
+
+  jet-management-center:
+    image: hazelcast/hazelcast-jet-management-center
+    container_name: hz_jet_mancenter
+    # persisting mancenter users db folder to local disk
+    volumes:
+      - ./hazelcast-jet-ent-base-image/resources:/opt/hazelcast-jet-management-center/config-ext
+    environment:
+      #      - MANCENTER_DATA=/mancenter-3.8
+      # enable REST interface on management center
+      # http://docs.hazelcast.org/docs/latest-development/manual/html/Management/Clustered_REST_via_Management_Center.html
+      #      - JAVA_OPTS=-Dhazelcast.mc.rest.enabled=true -Dhazelcast.mc.license=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
+      - JAVA_OPTS=-Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t
+      - MC_LICENSE_KEY=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
+      - MC_APPLICATION_CONFIG=/opt/hazelcast-jet-management-center/config-ext/application.properties
+      - MC_CLIENT_CONFIG=/opt/hazelcast-jet-management-center/config-ext/hazelcast-client-jet-mancenter.xml
+    #    command: '/opt/hazelcast/mancenter/start.sh & && wait'
+    ports:
+      - 9090:8081
+    depends_on:
+      - hazelcast1
+      - hazelcast2
+      - hazelcast-jet-submit
+    networks:
+      - hazelcast-net
+
+
+  kafka:
+    image: lensesio/box
+    #    image: lensesio/fast-data-dev
+    container_name: kafka
+    environment:
+      EULA: 'https://dl.lenses.io/d/?id=eea56d34-2101-4d27-86ff-2e79eb89dceb'
+      DISABLE: azure-documentdb,blockchain,bloomberg,cassandra,coap,druid,elastic,elastic5,hbase,influxdb,kudu,mongodb,mqtt,rethink,voltdb,yahoo,hdfs,elasticsearch,twitter
+      SAMPLEDATA: 0
+      #        #      EULA: "https://dl:lenses:io/d/?id=40f579f3-c8be-4544-b3c0-8bab87cd3982"
+      #        #      Only for Mac this is hardcoded - this is the IP of the VM mac is running
+      #      ADV_HOST: "127.0.0.1"
+      # KAFKA_BROKER_ID: 1
+      # (Hack for Mac)use this if you want to have docker host node to be used as broadcast ip
+      #      ADV_HOST: "/sbin/ip route get 1.2.3.4 | awk '{print $7}'"
+      #      HOSTNAME_COMMAND: "/sbin/ip route|awk '/src/ { print $$NF }'"
+      #      # Use below for Linux
+      #      # HOSTNAME_COMMAND: "ip route get 1.2.3.4 | awk '{print $$7}'"
+      #      KAFKA_ADVERTISED_PORT: 9092
+      #      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      #        # KAFKA_CREATE_TOPICS: "varnish_raw_logs:10:1"
+      #      KAFKA_LOG_RETENTION_HOURS: "168"
+      #      KAFKA_LOG_RETENTION_BYTES: "100000000"
+      #        KAFKA_CREATE_TOPICS: "stocks-realtime:3:1,stocks-historic:3:1"
+      #        KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    #    depends_on:
+    #      - zookeeper
+    tty: true
+    command: '/usr/local/bin/setup-and-run.sh & && sleep 60 && bash -c /scripts/kafka-create-topics.sh && tail -f /dev/null'
+    #    command: '/usr/local/bin/setup-and-run.sh'
+    volumes:
+      - "./kafka-scripts:/scripts"
+    ports:
+      # Broker
+      - "9092:9092"
+      # ZK
+      - "2181:2181"
+      # Kafka Manager UI
+      - "3030:3030"
+      # REST API, Schema registry & Kafka- Connect Ports
+      - "8081-8083:8081-8083"
+      # JMX and other monitoring ports
+      - "9581-9585:9581-9585"
+    networks:
+      - hazelcast-net
+
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - hazelcast-net
+    tty: true
+    #    command: '/scripts/init-create-load-databases-tables.sh && sleep infinity'
+    volumes:
+      - ./mysql/scripts:/scripts
+      #          - ./mysql/data:/var/lib/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
+    environment:
+      #      - MYSQL_DATABASE=cdc
+      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_USER=cdc_user
+#      - MYSQL_PASSWORD=cdc_pass

@@ -1,0 +1,5 @@
+[mysqld]
+secure-file-priv=/scripts
+local_infile=1
+binlog_rows_query_log_events=ON
+server-id=1234
