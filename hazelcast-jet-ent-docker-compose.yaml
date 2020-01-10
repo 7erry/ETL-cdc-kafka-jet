@@ -45,15 +45,15 @@ services:
     volumes:
       - ./hazelcast-jet-ent-base-image/resources:/opt/hazelcast-jet-enterprise/config-ext
     environment:
-      #      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/hazelcast.xml -Dhazelcast.enterprise.license.key=ENTERPRISE_HD#8Nodes#Q6UJE9iNKSbfMOkjlZdXDYHPuAgwm1BWTqG85n2Cy018090090120810011100000101110900000010119011 -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
-      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.217:5701 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
+      #      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/hazelcast.xml -Dhazelcast.enterprise.license.key=ENTERPRISE_HD#8Nodes#Q6UJE9iNKSbfMOkjlZdXDYHPuAgwm1BWTqG85n2Cy018090090120810011100000101110900000010119011 -Dhazelcast.mancenter.url=192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.226:5701
+      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.226:5701 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
 
-      #      - JAVA_OPTS=-Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701 -Dhazelcast.diagnostics.enabled=true
+      #      - JAVA_OPTS=-Dhazelcast.mancenter.url=192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.226:5701 -Dhazelcast.diagnostics.enabled=true
 
       #      - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast.xml -Dhazelcast.mancenter.url=http://localhost:8080/hazelcast-mancenter -Dgroup.name=hz-cluster -Dgroup.password=s3cr3t
-      #      - JAVA_OPTS=-Dhazelcast.config=${HZ_HOME}/hazelcast.xml -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
+      #      - JAVA_OPTS=-Dhazelcast.config=${HZ_HOME}/hazelcast.xml -Dhazelcast.mancenter.url=192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.226:5701
       #      - HOST_IP='ipconfig getifaddr en0'
-      #      - MANCENTER_URL="192.168.86.217:8080/hazelcast-mancenter"
+      #      - MANCENTER_URL="192.168.86.226:8080/hazelcast-mancenter"
       - JET_LICENSE_KEY=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
       - LOGGING_LEVEL=FINEST
 
@@ -81,14 +81,14 @@ services:
       - ./hazelcast-jet-ent-base-image/resources:/opt/hazelcast-jet-enterprise/config-ext
 
     environment:
-      #      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/hazelcast.xml -Dhazelcast.enterprise.license.key=ENTERPRISE_HD#8Nodes#Q6UJE9iNKSbfMOkjlZdXDYHPuAgwm1BWTqG85n2Cy018090090120810011100000101110900000010119011 -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
+      #      - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast/hazelcast.xml -Dhazelcast.enterprise.license.key=ENTERPRISE_HD#8Nodes#Q6UJE9iNKSbfMOkjlZdXDYHPuAgwm1BWTqG85n2Cy018090090120810011100000101110900000010119011 -Dhazelcast.mancenter.url=192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.226:5701
 
-      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.217:5702 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
+      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.226:5702 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
 
       #      - JAVA_OPTS=-Dhazelcast.config=/configFolder/hazelcast.xml -Dhazelcast.mancenter.url=http://localhost:8080/hazelcast-mancenter -Dgroup.name=hz-cluster -Dgroup.password=s3cr3t
-      #      - JAVA_OPTS=-Dhazelcast.config=${HZ_HOME}/hazelcast.xml -Dhazelcast.mancenter.url=192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.217:5701
+      #      - JAVA_OPTS=-Dhazelcast.config=${HZ_HOME}/hazelcast.xml -Dhazelcast.mancenter.url=192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-ent-cluster -Dhazelcast.local.publicAddress=192.168.86.226:5701
       #      - HOST_IP='ipconfig getifaddr en0'
-      #      - MANCENTER_URL="192.168.86.217:8080/hazelcast-mancenter"
+      #      - MANCENTER_URL="192.168.86.226:8080/hazelcast-mancenter"
       - JET_LICENSE_KEY=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
       - LOGGING_LEVEL=FINEST
 
@@ -115,7 +115,7 @@ services:
       - ./hazelcast-jet-ent-base-image/jet-job-jars:/opt/hazelcast-jet-enterprise/job-jars
 
     environment:
-      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.217:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.217:5703 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
+      - JAVA_OPTS=-Dhazelcast.mancenter.url=http://192.168.86.226:8080/hazelcast-mancenter -Dgroup.name=hz-jet-ent-cluster -Dgroup.password=s3cr3t -Dhazelcast.local.publicAddress=192.168.86.226:5703 -Dhazelcast.diagnostics.enabled=true -Dhazelcast.config=/opt/hazelcast-jet-enterprise/config-ext/hazelcast.xml
 #      - JOB_JAR=${JOB_JAR}
       - JET_LICENSE_KEY=JET_ENTERPRISE#4Nodes#HnJiP0GC6Xb1lkyZOWdjKw9MmYTSD2BguANqf8EUQ517001093000101010120001000149101011009010001
       - LOGGING_LEVEL=FINEST

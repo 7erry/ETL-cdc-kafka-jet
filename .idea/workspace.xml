@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="598d6100-79e2-476e-aa82-7bc5fe09659b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Vgk1STzpkcnUGFMrS3dkHE6GQC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager" selected="Maven.kafka2imap [package]">
+    <configuration name="KafkaJson2IMAP" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="KafkaJson2IMAP" />
+      <module name="kafka2imap" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kafka2imap [package]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+              </list>
+            </option>
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.KafkaJson2IMAP" />
+      <item itemvalue="Maven.kafka2imap [package]" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="598d6100-79e2-476e-aa82-7bc5fe09659b" name="Default Changelist" comment="" />
+      <created>1577681909236</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577681909236</updated>
+      <workItem from="1577681910586" duration="9233000" />
+      <workItem from="1577696051689" duration="7799000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="469" y="159" key="#KafkaJson2IMAP" timestamp="1577684912689">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="469" y="159" key="#KafkaJson2IMAP/0.23.1680.949@0.23.1680.949" timestamp="1577684912689" />
+    <state x="394" y="152" key="#Project_Structure" timestamp="1577692148332">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="394" y="152" key="#Project_Structure/0.23.1680.949@0.23.1680.949" timestamp="1577692148332" />
+    <state x="258" y="149" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577701832532">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="258" y="149" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.949@0.23.1680.949" timestamp="1577701832532" />
+    <state x="559" y="295" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577696735928">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="559" y="295" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.949@0.23.1680.949" timestamp="1577696735928" />
+    <state x="531" y="279" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577723968198">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="531" y="279" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.949@0.23.1680.949" timestamp="1577723968198" />
+    <state x="546" y="130" key="#kafka2imap-1.0-SNAPSHOT.jar" timestamp="1577696755219">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="546" y="130" key="#kafka2imap-1.0-SNAPSHOT.jar/0.23.1680.949@0.23.1680.949" timestamp="1577696755219" />
+    <state x="339" y="76" key="#kafka2imap_[package]" timestamp="1577692401617">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="339" y="76" key="#kafka2imap_[package]/0.23.1680.949@0.23.1680.949" timestamp="1577692401617" />
+    <state width="1475" height="241" key="GridCell.Tab.0.bottom" timestamp="1577734069134">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state width="1475" height="241" key="GridCell.Tab.0.bottom/0.23.1680.949@0.23.1680.949" timestamp="1577734069134" />
+    <state width="1475" height="241" key="GridCell.Tab.0.center" timestamp="1577734069132">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state width="1475" height="241" key="GridCell.Tab.0.center/0.23.1680.949@0.23.1680.949" timestamp="1577734069132" />
+    <state width="1475" height="241" key="GridCell.Tab.0.left" timestamp="1577734069132">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state width="1475" height="241" key="GridCell.Tab.0.left/0.23.1680.949@0.23.1680.949" timestamp="1577734069132" />
+    <state width="1475" height="241" key="GridCell.Tab.0.right" timestamp="1577734069133">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state width="1475" height="241" key="GridCell.Tab.0.right/0.23.1680.949@0.23.1680.949" timestamp="1577734069133" />
+    <state x="282" y="68" key="SettingsEditor" timestamp="1577725174134">
+      <screen x="0" y="23" width="1680" height="949" />
+    </state>
+    <state x="282" y="68" key="SettingsEditor/0.23.1680.949@0.23.1680.949" timestamp="1577725174134" />
+  </component>
+</project>
