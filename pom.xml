@@ -69,7 +69,7 @@
         <dependency>
             <groupId>com.hazelcast.jet</groupId>
             <artifactId>hazelcast-jet</artifactId>
-            <version>3.2.1</version>
+            <version>4.5.4</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.hazelcast.jet/hazelcast-jet-kafka -->
         <dependency>
